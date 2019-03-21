@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel=stylesheet href=style.css>
+  <title>Alkoviden.dk</title>
+  </head>
+<body>
+  <div class="navbar">
+    <a href="rudrunk.html">Forside</a>
+    <a href="alkohol.html">Hvad er alkohol?</a>
+    <a href="øl.html">Øl</a>
+    <a href="vin.html">Vin</a>
+    <a href="vodka.html">Vodka</a>
+    <a href="rom.html">Rom</a>
+    <a href="promilleberegner.html">Promilleberegner</a>
+  </div>
+
+  <div class="main">
+    <h1>Promilleberegner</h1>
+    <p>Ved at skrive ind, hvad man har drukket og hvor meget man vejer, kan man udregne sin promille.</p>
+    <table>
+      <tr>
+        <th>Promilleberegner</th>
+        </tr>
+        <tr>
+          <td>Øl 33 cl</td>
+          <td><input type="text" name="Øl"></td>
+        </tr>
+        <tr>
+          <td>Vin 12 cl</td>
+          <td><input type="text" name="Vin"></td>
+        </tr>
+        <tr>
+          <td>Spiritus 4 cl</td>
+          <td><input type="text" name="Spiritus"></td>
+        </tr>
+        <tr>
+          <td>Shots 4 cl</td>
+          <td><input type="text" name="Shots"></td>
+        </tr>
+        <tr>
+          <td>Vægt</td>
+          <td><input type="text" name="Vægt"></td>
+        </tr>
+        <tr>
+        <td>
+                    Jeg begyndte at drikke&nbsp;
+                </td>
+                <td>
+                    kl.
+                    <input name="ctl00$ContentPlaceHolder1$StartTimeTextBox" maxlength="5" id="ContentPlaceHolder1_StartTimeTextBox" required="true" type="time" style="width:90px;">
+                </td>
+                </tr>
+                <tr>
+                  <td align="right">
+                    klokken er nu&nbsp;
+                      kl.
+                        <input name="ctl00$ContentPlaceHolder1$TimeNowTextBox" value="9:19" maxlength="5" id="ContentPlaceHolder1_TimeNowTextBox" required="true" type="time" style="width:90px;">
+                </td>
+</tr>
+        <tr>
+          <td><button onclick="myFunction()">Beregn</button></td>
+        </tr>
+      </table>
