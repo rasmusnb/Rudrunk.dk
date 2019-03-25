@@ -38,7 +38,7 @@
         </tr>
         <tr>
           <td>Spiritus 4 cl</td>
-          <td><input type="range" id="Spiritus" value="0" Step="1" min="0" max="99" oninput"calculate()">
+          <td><input type="range" id="Spiritus" value="0" Step="1" min="0" max="99" oninput="calculate()">
             <span class="quantity" id="Spiritus_quantity">0</span>
           </td>
         </tr>
@@ -77,7 +77,7 @@
         Spiritus_qty_element.innerHTML = Spiritus_element.value;
 
       resultat_element.innerHTML = Number(Ol_element.value) + Number(Vin_element.value) + Number(Spiritus_element.value);
-      
+
       }
     </script>
   </body>
