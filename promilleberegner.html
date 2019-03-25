@@ -25,19 +25,26 @@
         </tr>
         <tr>
           <td>Øl 33 cl</td>
-          <td><input type="number" name="quantity" min="0" max="99"></td>
+          <td>
+            <input type="range" id="Ol" value="0" step="1" min="0" max="99" oninput="calculate()">
+            <span class="quantity" id="Ol_quantity">0</span>
+          </td>
         </tr>
         <tr>
           <td>Vin 12 cl</td>
-          <td><input type="number" name="Vin" min="0" max="99"></td>
+          <td><input type="range" id="Vin" value="0" step="1" min="0" max="99" oninput="calculate()">
+            <span class="quantity" id="Vin_quantity">0</span>
+          </td>
         </tr>
         <tr>
           <td>Spiritus 4 cl</td>
-          <td><input type="number" name="Spiritus" min="0" max="99"></td>
+          <td><input type="range" id="Spiritus" value="0" Step="1" min="0" max="99" oninput"calculate()">
+            <span class="quantity" id="Spiritus_quantity">0</span>
+          </td>
         </tr>
         <tr>
-          <td>Vægt</td>
-          <td><input type="number" name="Vægt" min="0" max="99"></td>
+          <td>Din vægt (kg)</td>
+          <td><input type="number" id="Vægt" min="0" max="99"></td>
         </tr>
         <tr>
         <td>
@@ -45,10 +52,33 @@
                 </td>
                 <td>
                     kl.
-                    <input name="ctl00$ContentPlaceHolder1$StartTimeTextBox" maxlength="5" id="ContentPlaceHolder1_StartTimeTextBox" required="true" type="time" style="width:90px;">
+                    <input maxlength="5" id="starttid" required="true" type="time" style="width:90px;">
                 </td>
                 </tr>
         <tr>
-          <td><button onclick="myFunction()">Beregn</button></td>
+          <td><p id="resultat">0</p></td>
         </tr>
       </table>
+    </div>
+    <script>
+      var Ol_element = document.querySelector("#Ol");
+      var Ol_qty_element = document.querySelector("#Ol_quantity");
+      var resultat_element = document.querySelector("#resultat");
+
+      var Vin_element = document.querySelector("#Vin");
+      var Vin_qty_element = document.querySelector("#Vin_quantity");
+
+      var Spiritus_element = document.querySelector("#Spiritus");
+      var Spiritus_qty_element = document.querySelector("#Spiritus_quantity");
+
+      function calculate() {
+        Ol_qty_element.innerHTML = Ol_element.value;
+        Vin_qty_element.innerHTML = Vin_element.value;
+        Spiritus_qty_element.innerHTML = Spiritus_element.value;
+
+      resultat_element.innerHTML = Number(Ol_element.value) + Number(Vin_element.value) + Number(Spiritus_element.value);
+      
+      }
+    </script>
+  </body>
+</html>
