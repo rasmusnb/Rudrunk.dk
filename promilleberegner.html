@@ -44,19 +44,30 @@
         </tr>
         <tr>
           <td>Din vægt (kg)</td>
-          <td><input type="number" id="Vægt" min="0" max="99"></td>
+          <td><input type="range" id="Vagt" value="0" Step="1" min="0" max="200" oninput="calculate()">
+          <span class="quantity" id="Vagt_quantity">0</span>
+        </td>
         </tr>
         <tr>
         <td>
-                    Jeg begyndte at drikke&nbsp;
-                </td>
+        <p>Timer siden jeg sidst drak</p>
                 <td>
-                    kl.
-                    <input maxlength="5" id="starttid" required="true" type="time" style="width:90px;">
+                    <input type="range" id="Timer" value="0" Step="1" min="0" max="99" oninput="calculate()">
+                    <span class="quantity" id="Timer_quantity">0</span>
                 </td>
                 </tr>
+                <tr>
+                  <td><p>Hvilket køn er du?</p></td>
+                  <td>
+                    <select name="cars" id="gender" onchange="calculate()">
+      <option value="tom">Vælg køn...</option>
+      <option value="Mand">Mand</option>
+      <option value="Kvinde">Kvinde</option>
+    </select>
+
         <tr>
-          <td><p id="resultat">0</p></td>
+          <td><p>Din promille er... </p> </td>
+            <td><p id="resultat" min="0">0‰</p></td>
         </tr>
       </table>
     </div>
@@ -71,13 +82,34 @@
       var Spiritus_element = document.querySelector("#Spiritus");
       var Spiritus_qty_element = document.querySelector("#Spiritus_quantity");
 
+      var Vagt_element = document.querySelector("#Vagt");
+      var Vagt_qty_element = document.querySelector("#Vagt_quantity");
+
+      var Timer_element = document.querySelector("#Timer");
+      var Timer_qty_element = document.querySelector("#Timer_quantity");
+
+      var gender_element = document.querySelector("#gender");
+
       function calculate() {
         Ol_qty_element.innerHTML = Ol_element.value;
         Vin_qty_element.innerHTML = Vin_element.value;
         Spiritus_qty_element.innerHTML = Spiritus_element.value;
+        Vagt_qty_element.innerHTML = Vagt_element.value;
+        Timer_qty_element.innerHTML = Timer_element.value;
 
-      resultat_element.innerHTML = Number(Ol_element.value) + Number(Vin_element.value) + Number(Spiritus_element.value);
+      let resultat;
+      if (gender_element.value=="Mand") {
+        resultat = Math.max(0, (((Number(Ol_element.value) + Number(Vin_element.value) + Number(Spiritus_element.value)) * 12) / (Number(Vagt_element.value) * 70)) * 100 - (0.15 * Number(Timer_element.value)));
+      }
+      else if (gender_element.value=="Kvinde") {
+        resultat = Math.max(0, (((Number(Ol_element.value) + Number(Vin_element.value) + Number(Spiritus_element.value)) * 12) / (Number(Vagt_element.value) * 60)) * 100 - (0.15 * Number(Timer_element.value)));
+      }
 
+      else {
+              alert("Vælg køn!");
+      }
+
+      resultat_element.innerHTML = resultat.toLocaleString() + " ‰";
       }
     </script>
   </body>
