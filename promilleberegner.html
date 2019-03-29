@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <link rel=stylesheet href=style.css>
-  <title>Alkoviden.dk</title>
+  <link rel="icon" href="FFF.jpg">
+  <title>RUdrunk.dk</title>
   </head>
 <body>
   <div class="navbar">
@@ -23,6 +24,16 @@
       <tr>
         <th>Promilleberegner</th>
         </tr>
+        <tr>
+          <td><p>Hvilket køn er du?</p></td>
+          <td>
+            <select name="cars" id="gender" onchange="calculate()">
+<option value="tom">Vælg køn...</option>
+<option value="Mand">Mand</option>
+<option value="Kvinde">Kvinde</option>
+</select>
+</td>
+</tr>
         <tr>
           <td>Øl 33 cl</td>
           <td>
@@ -56,14 +67,6 @@
                     <span class="quantity" id="Timer_quantity">0</span>
                 </td>
                 </tr>
-                <tr>
-                  <td><p>Hvilket køn er du?</p></td>
-                  <td>
-                    <select name="cars" id="gender" onchange="calculate()">
-      <option value="tom">Vælg køn...</option>
-      <option value="Mand">Mand</option>
-      <option value="Kvinde">Kvinde</option>
-    </select>
 
         <tr>
           <td><p>Din promille er... </p> </td>
